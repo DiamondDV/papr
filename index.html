@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Random Fun Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff8a00, #e52e71);
+            color: white;
+            text-align: center;
+            padding: 50px;
+        }
+        .card {
+            background: rgba(255,255,255,0.15);
+            padding: 25px;
+            border-radius: 12px;
+            width: 400px;
+            margin: auto;
+            backdrop-filter: blur(6px);
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        button:hover {
+            background: rgba(255,255,255,0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🎲 Random HTML Page</h1>
+
+    <div class="card">
+        <p id="msg">Click the button for a random message!</p>
+        <button onclick="randomMsg()">Generate</button>
+    </div>
+
+    <script>
+        const msgs = [
+            "You are awesome 😎",
+            "Today is your lucky day 🍀",
+            "Keep pushing forward 💪",
+            "Something amazing is coming ✨",
+            "Smile! You're doing great 😊"
+        ];
+
+        function randomMsg() {
+            document.getElementById('msg').innerText =
+                msgs[Math.floor(Math.random() * msgs.length)];
+        }
+    </script>
+
+</body>
+</html>
