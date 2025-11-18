@@ -1,60 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Random Fun Page</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #ff8a00, #e52e71);
-            color: white;
-            text-align: center;
-            padding: 50px;
-        }
-        .card {
-            background: rgba(255,255,255,0.15);
-            padding: 25px;
-            border-radius: 12px;
-            width: 400px;
-            margin: auto;
-            backdrop-filter: blur(6px);
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            margin-top: 15px;
-        }
-        button:hover {
-            background: rgba(255,255,255,0.2);
-        }
-    </style>
+<meta charset="UTF-8">
+<title>Immersive Game Portal</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    body {
+        height: 100vh;
+        background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b);
+        background-size: 300% 300%;
+        animation: gradientShift 12s ease infinite;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        overflow: hidden;
+    }
+
+    @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    .container {
+        text-align: center;
+        max-width: 900px;
+        width: 90%;
+        animation: fadeIn 1.5s ease;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+        font-size: 3rem;
+        margin-bottom: 25px;
+        text-shadow: 0 0 15px rgba(255,255,255,0.4);
+    }
+
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    .card {
+        background: rgba(255, 255, 255, 0.15);
+        padding: 25px;
+        border-radius: 15px;
+        backdrop-filter: blur(6px);
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: 1px solid rgba(255,255,255,0.25);
+    }
+
+    .card:hover {
+        transform: translateY(-10px) scale(1.05);
+        box-shadow: 0 0 25px rgba(255,255,255,0.5);
+    }
+
+    .card-title {
+        font-size: 1.6rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+        text-shadow: 0 0 10px rgba(255,255,255,0.3);
+    }
+
+    .card-desc {
+        font-size: 0.9rem;
+        opacity: 0.85;
+    }
+</style>
 </head>
+
 <body>
 
-    <h1>🎲 Random HTML Page</h1>
+<div class="container">
+    <h1>🎮 Immersive Game Portal</h1>
 
-    <div class="card">
-        <p id="msg">Click the button for a random message!</p>
-        <button onclick="randomMsg()">Generate</button>
+    <div class="cards">
+
+        <div class="card" onclick="window.open('https://quickdraw.withgoogle.com/', '_blank')">
+            <div class="card-title">Quick Draw</div>
+            <div class="card-desc">A fast sketch-recognition guessing game.</div>
+        </div>
+
+        <div class="card" onclick="window.open('https://www.sudoku9x9.com/', '_blank')">
+            <div class="card-title">Sudoku 9x9</div>
+            <div class="card-desc">Classic Sudoku puzzles in clean style.</div>
+        </div>
+
+        <div class="card" onclick="window.open('https://poki.com/en/g/brain-test-tricky-puzzles', '_blank')">
+            <div class="card-title">Brain Test</div>
+            <div class="card-desc">Mind-bending tricky puzzles & riddles.</div>
+        </div>
+
+        <div class="card" onclick="window.open('https://www.primarygames.com/puzzles/strategy/watersort/mobile/', '_blank')">
+            <div class="card-title">Water Sort Puzzle</div>
+            <div class="card-desc">Sort colors into the correct tubes.</div>
+        </div>
+
     </div>
-
-    <script>
-        const msgs = [
-            "You are awesome 😎",
-            "Today is your lucky day 🍀",
-            "Keep pushing forward 💪",
-            "Something amazing is coming ✨",
-            "Smile! You're doing great 😊"
-        ];
-
-        function randomMsg() {
-            document.getElementById('msg').innerText =
-                msgs[Math.floor(Math.random() * msgs.length)];
-        }
-    </script>
+</div>
 
 </body>
 </html>
